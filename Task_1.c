@@ -36,16 +36,16 @@ int main()
     printf("%s\n", string_1);
 	return 0;
 }
-
+//Similar to a bubble sort but not a bubble sort(variation)
 void filter_ascending(char* string_1)
 {
-    for (int i = 1; i < strlen(string_1); i++)
-    {
-        for (int j = 0; string_1[j+2] != '\0'; j++)
+    for (int i = 1; i < strlen(string_1); i++)//Number of passes through the string (n-1) number of passes where n is the number of strings
+    {   //for (int j = 0; string_1[j+2] != '\0'; j++)//Error, j+2 when comparing the last two character is at the null character hence last 2 is skipped
+        for (int j = 0; string_1[j+1] != '\0'; j++)//Error
         {
-            if (string_1[j] > string_1[j+1])
-            {
-                for (int k = 0; string_1[k] != '\0'; k++)
+            if (string_1[j] > string_1[j+1])//Wrong order not ascending, according to ASCI since b is greater than a hence if string_1[j]> string_1[j+1] then order is not ascending
+            {   //for (int k = 0; string_1[k] != '\0'; k++)//Error, we want to overwrite at j+1 not the start 0
+                for (int k = j+1; string_1[k] != '\0'; k++)//Error
                 {
                     string_1[k] = string_1[k+1];
                 }
